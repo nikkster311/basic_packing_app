@@ -1,0 +1,49 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  height: 40px;
+  color: white;
+}
+
+.createCatForm {
+  background-color: #3f2;
+  padding: 10px;
+}
+
+.categorySection{
+  background-color: #10d;
+  padding: 15px;
+  border: 5px dashed #345;
+}
+
+.allCategories {
+  background-color: #f12;
+  padding: 15px;
+}
+
+.ulCatComp {
+  background-color: #87a;
+  padding: 10px;
+}
+
+.addItemForm {
+  background-color: #91d;
+  padding: 15px;
+}
+
+.liItem {
+  background-color: #10d;
+  padding: 15px;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
