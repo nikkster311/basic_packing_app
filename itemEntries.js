@@ -3,19 +3,20 @@ import React from 'react';
 class ItemEntries extends React.Component {
   createList(item) {
     return(
-      <li className="liItem" key={item.key}>
+      <li className="liItem" key={item.key} catName={item.catName}>
         {item.name}
-        <button onChange={this.props.deleteItem}>x</button>
+        <button>x</button>
       </li>
     )
   }
 
-  render() {
-
+  render(props) {
+    const itemsList = this.props.itemsList
+    const mappedItems = itemsList.map(this.createList)
     return(
-      <h1>hi</h1>
-      // const
-      // <ul>{mappedCategoryItemsList}</ul>
+      <li>
+        <ul className="mappedItems">{mappedItems}</ul>
+      </li>
 
     )
   }
