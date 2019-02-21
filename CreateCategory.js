@@ -1,8 +1,6 @@
 import React from "react";
 
 class CreateCategory extends React.Component {
-
-
   render() {
     return (
       <div>

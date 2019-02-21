@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import "./App.css";
 import AllLists from './AllLists';
-// import CategoryComponent from "./CategoryComponent";
-// import AddItem from "./AddItem";
 import CreateCategory from "./CreateCategory"
 
 class App extends Component {
@@ -12,25 +10,9 @@ class App extends Component {
       catList: [],
       currentCategory: {name: "", key: ""}
     }
-
-
-
-    // this.handleAdd = this.handleAdd.bind(this);
     this.handleInputNewCat = this.handleInputNewCat.bind(this);
     this.submitNewCat = this.submitNewCat.bind(this);
-    // this.newCatHandler = this.newCatHandler.bind(this);
   }
-
-
-
-// //creates a new category
-//   newCatHandler = (e) => {
-//     var { name, value } = e.target;
-//     this.setState({
-//       [name]: {value}
-//     })
-//   }
-
 
   handleInputNewCat = e => {
     // var currentCatName = e.target.value
@@ -39,7 +21,6 @@ class App extends Component {
       console.log("currentCategory: " + this.state.currentCategory.name + ", " + this.state.currentCategory.key)
     })
   }
-
 
   submitNewCat = e => {
     e.preventDefault()
@@ -53,23 +34,16 @@ class App extends Component {
     }
   }
 
-
-
-
-
-
   render() {
     return (
       <div className="App"> App
         <header className="App-header"> Header
           <AllLists //container with ALL of the category components
             catList={this.state.catList}/>
-
           <CreateCategory
             onSubmit={this.submitNewCat}
             handleInput={this.handleInputNewCat}
             currentCategory={this.state.currentCategory} />
-
         </header>
       </div>
     );

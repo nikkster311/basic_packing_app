@@ -6,57 +6,53 @@ class CategoryComponent extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentItem: {catKey: "", itemKey: "", name: ""},
+      currentItem: {catName: "", key: "", name: ""},
       itemsList: []
     }
-
-
-    this.handleInput.bind(this)
+    this.handleInput.bind(this);
+    this.handleAdd.bind(this);
+    // this.deletItem.bind(this);
+  }
+  handleAdd = e => {
+    e.stopImmediatePropogation();
+    const newItem = this.state.currentItem
+    if (newItem.name !== '') {
+      const itemsList = [...this.state.itemsList, newItem]
+      this.setState({
+        itemsList: itemsList,
+        currentItem: {catName: "", key: "", name: ""}
+      })
+    }
   }
 
-  handleInput = (e) => {
+  handleInput = e => {
     this.setState({
-      currentItem: {catKey: this.props.key, itemKey: new Date(), name: e.target.value}
+      currentItem: {catName: this.props.name, key: Date.now(), name: e.target.value}
+    }, () => {
+      console.log("currentItem: catName: " + this.state.currentItem.catName + ", key: " + this.state.currentItem.key + " , name: " + this.state.currentItem.name)
     })
-    // const { name, value } = e.target;
-    // var key = new Date();
-    // this.setState({
-    //   ["current" + name + "item"]: {value, key}
-    // })
   }
 
-  createCategoryList(props) {
-    return(
-      <ul className="ulCatComp" key={this.props.key}>
-        <h2>{this.props.name}</h2>
-        <ItemEntries />
-        <h1>hi</h1>
-        <AddItem
-          handleInput={this.handleInput}/>
 
-      </ul>
-   )}
 
+  // deleteItem = (e) => {
   //
-  // render() {
-  //   return(
-  //     // const categories = {this.props.categories}
-  //     <h1>CategoryComponent</h1>
-  //     // <CategoryList name="toiletries"/>
-  //     // <AddToList
-  //     // name="toiletries"
-  //     // currentItem={this.state.currentToiletriesItem}
-  //     // handleInput={this.handleInput}
-  //     // handleAdd={this.handleAdd} />
-  //
-  //
-  //   )
   // }
 
-  render() {
+  render(props) {
     return(
       <section>
-        <h2>{this.props.name}</h2>
+        <ul className="ulCatComp" name={this.props.name}>
+          <h2>{this.props.name}</h2>
+          <ItemEntries
+            itemsList={this.state.itemsList}
+            // deleteItem={this.deleteItem}
+            />
+          <AddItem
+            handleInput={this.handleInput}
+            currentItem={this.state.currentItem}
+            handleAdd={this.handleAdd} />
+        </ul>
       </section>
 
     )
