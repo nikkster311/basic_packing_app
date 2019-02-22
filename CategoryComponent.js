@@ -6,30 +6,40 @@ class CategoryComponent extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentItem: {catName: "", key: "", name: ""},
+      currentItem: {catname: "", key: "", name: ""},
       itemsList: []
     }
     this.handleInput.bind(this);
     this.handleAdd.bind(this);
-    // this.deletItem.bind(this);
+    this.handleDelete.bind(this);
   }
+
+  handleDelete =  key  => {
+    console.log(this.state.itemsList + " = itemList***********")
+    const newList = this.state.itemsList.filter(item => {
+      return item.key !== key
+    })
+    console.log("newList : " + newList)
+    this.setState({itemsList: newList})
+  }
+
   handleAdd = e => {
-    e.stopImmediatePropogation();
+    e.preventDefault();
     const newItem = this.state.currentItem
     if (newItem.name !== '') {
       const itemsList = [...this.state.itemsList, newItem]
       this.setState({
         itemsList: itemsList,
-        currentItem: {catName: "", key: "", name: ""}
+        currentItem: {catname: "", key: "", name: ""}
       })
     }
   }
 
   handleInput = e => {
     this.setState({
-      currentItem: {catName: this.props.name, key: Date.now(), name: e.target.value}
+      currentItem: {catname: this.props.name, key: Date.now(), name: e.target.value}
     }, () => {
-      console.log("currentItem: catName: " + this.state.currentItem.catName + ", key: " + this.state.currentItem.key + " , name: " + this.state.currentItem.name)
+      console.log("currentItem: catname: " + this.state.currentItem.catname + ", key: " + this.state.currentItem.key + " , name: " + this.state.currentItem.name)
     })
   }
 
@@ -46,7 +56,7 @@ class CategoryComponent extends React.Component {
           <h2>{this.props.name}</h2>
           <ItemEntries
             itemsList={this.state.itemsList}
-            // deleteItem={this.deleteItem}
+            handleDelete={this.handleDelete}
             />
           <AddItem
             handleInput={this.handleInput}

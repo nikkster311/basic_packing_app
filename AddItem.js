@@ -4,7 +4,7 @@ class AddItem extends React.Component {
 
   render() {
     return(
-      <form className="addItemForm" onSubmit={this.handleAdd}>addItem
+      <form className="addItemForm" onSubmit={this.props.handleAdd}>addItem
         <input
           type="text"
           placeholder="input here"

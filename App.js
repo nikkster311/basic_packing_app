@@ -15,8 +15,6 @@ class App extends Component {
   }
 
   handleInputNewCat = e => {
-    // var currentCatName = e.target.value
-    // var currentCategory = {name: currentCatName, key: Date.now()}
     this.setState({currentCategory: {name: e.target.value, key: Date.now()}}, () => {
       console.log("currentCategory: " + this.state.currentCategory.name + ", " + this.state.currentCategory.key)
     })
