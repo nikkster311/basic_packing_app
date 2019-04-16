@@ -6,21 +6,20 @@ class CategoryComponent extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentItem: {catname: "", key: "", name: ""},
+      currentItem: {key: "", name: ""},
       itemsList: []
     }
     this.handleInput.bind(this);
     this.handleAdd.bind(this);
-    this.handleDelete.bind(this);
+    this.deleteItem.bind(this);
+    // this.handleDelete.bind(this);
   }
 
-  handleDelete =  key  => {
-    console.log(this.state.itemsList + " = itemList***********")
-    const newList = this.state.itemsList.filter(item => {
-      return item.key !== key
-    })
-    console.log("newList : " + newList)
-    this.setState({itemsList: newList})
+//OHMYGOD This was deleteItem(key) {} and was causing it to refresh the app -_-
+  deleteItem = key => {
+    const newList = this.state.itemsList
+    const filteredList = newList.filter(item => item.key !== key)
+    this.setState({itemsList: filteredList})
   }
 
   handleAdd = e => {
@@ -30,34 +29,28 @@ class CategoryComponent extends React.Component {
       const itemsList = [...this.state.itemsList, newItem]
       this.setState({
         itemsList: itemsList,
-        currentItem: {catname: "", key: "", name: ""}
+        currentItem: {key: "", name: ""}
       })
     }
   }
 
   handleInput = e => {
     this.setState({
-      currentItem: {catname: this.props.name, key: Date.now(), name: e.target.value}
+      currentItem: {key: Date.now(), name: e.target.value}
     }, () => {
-      console.log("currentItem: catname: " + this.state.currentItem.catname + ", key: " + this.state.currentItem.key + " , name: " + this.state.currentItem.name)
+      console.log("currentItem: key: " + this.state.currentItem.key + " , name: " + this.state.currentItem.name)
     })
   }
 
-
-
-  // deleteItem = (e) => {
-  //
-  // }
 
   render(props) {
     return(
       <section>
         <ul className="ulCatComp" name={this.props.name}>
-          <h2>{this.props.name}</h2>
+          <h2 className="catTitle">{this.props.name}</h2>
           <ItemEntries
             itemsList={this.state.itemsList}
-            handleDelete={this.handleDelete}
-            />
+            deleteItem={this.deleteItem} />
           <AddItem
             handleInput={this.handleInput}
             currentItem={this.state.currentItem}

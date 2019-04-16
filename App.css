@@ -8,20 +8,24 @@
   color: white;
 }
 
+/* ----------ALL LISTS---------- */
+
 .createCatForm {
   background-color: #3f2;
   padding: 10px;
 }
 
+.allCategories {
+  background-color: #f12;
+  padding: 15px;
+}
+
+/* ----------INDIVID CATEGORY---------- */
+
 .categorySection{
   background-color: #10d;
   padding: 15px;
   border: 5px dashed #345;
-}
-
-.allCategories {
-  background-color: #f12;
-  padding: 15px;
 }
 
 .ulCatComp {
@@ -34,16 +38,13 @@
   padding: 15px;
 }
 
+/* ----------INDIVID ITEMS---------- */
+
 .liItem {
   background-color: #10d;
   padding: 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.catTitle {
+  display: inline-block;
 }
