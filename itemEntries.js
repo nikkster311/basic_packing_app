@@ -1,19 +1,29 @@
 import React from 'react';
 
 class ItemEntries extends React.Component {
-  createList(item, props) {
+  constructor(props) {
+    super(props)
+
+    this.createList.bind(this);
+  }
+
+
+
+  createList(item) {
+    console.log("running createList... key : " + item.key + " and name: " + item.name)  
     return(
-      <li className="liItem" key={item.key} catname={item.catname}>
+      <li className="liItem" key={item.key}>
         {item.name}
-        <button onClick={props.handleDelete}>x</button>
+        <button onClick={() => { this.props.deleteItem(item.key) }}>x</button>
       </li>
     )
   }
   //if you delete this.props.handleDelete, everything works.
 
+
   render(props) {
     const itemsList = this.props.itemsList
-    const mappedItems = itemsList.map(this.createList)
+    const mappedItems = itemsList.map(item => this.createList(item))
     return(
       <li>
         <ul className="mappedItems">{mappedItems}</ul>

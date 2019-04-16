@@ -1,21 +1,27 @@
 import React from 'react';
 import CategoryComponent from "./CategoryComponent";
+import './fontawesome-free-5.7.0-web/js/all';
 
 class AllLists extends React.Component {
 //we take all of the categories and create a category component for each
 //maybe just have  <AddItem/> this underneath instead of nested
+
+
+
   createCategory(category) {
     return (
       <section className="categorySection" key={category.key}>
+        <button onClick={() => { this.props.deleteCategory(category.key) }}>
+          <i className="far fa-trash-alt"></i>
+        </button>
         <CategoryComponent
-          name={category.name}
-          key={category.key} />
+          name={category.name} />
       </section>
     )
   }
   render(props) {
     const catList = this.props.catList //sets list of all categories and keys to allCategories
-    const mappedCategories = catList.map(this.createCategory)
+    const mappedCategories = catList.map(category => this.createCategory(category))
     return( //for x in this.state.catList, map into a category component
       <section className="allCategories">{mappedCategories}</section>
     )

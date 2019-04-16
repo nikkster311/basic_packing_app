@@ -12,6 +12,13 @@ class App extends Component {
     }
     this.handleInputNewCat = this.handleInputNewCat.bind(this);
     this.submitNewCat = this.submitNewCat.bind(this);
+    this.deleteCategory = this.deleteCategory.bind(this);
+  }
+
+  deleteCategory = key => {
+    const newList = this.state.catList
+    const filteredList = newList.filter(item => item.key !== key)
+    this.setState({catList: filteredList})
   }
 
   handleInputNewCat = e => {
@@ -37,7 +44,8 @@ class App extends Component {
       <div className="App"> App
         <header className="App-header"> Header
           <AllLists //container with ALL of the category components
-            catList={this.state.catList}/>
+            catList={this.state.catList}
+            deleteCategory={this.deleteCategory}/>
           <CreateCategory
             onSubmit={this.submitNewCat}
             handleInput={this.handleInputNewCat}
