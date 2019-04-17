@@ -38,6 +38,14 @@
   padding: 15px;
 }
 
+.deleteButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #3ed;
+  float: right;
+}
+
 /* ----------INDIVID ITEMS---------- */
 
 .liItem {
@@ -47,4 +55,8 @@
 
 .catTitle {
   display: inline-block;
+}
+
+.completedItem {
+  text-decoration: line-through;
 }

@@ -11,7 +11,7 @@ class AllLists extends React.Component {
   createCategory(category) {
     return (
       <section className="categorySection" key={category.key}>
-        <button onClick={() => { this.props.deleteCategory(category.key) }}>
+        <button className="deleteButton" onClick={() => { this.props.deleteCategory(category.key) }}>
           <i className="far fa-trash-alt"></i>
         </button>
         <CategoryComponent
