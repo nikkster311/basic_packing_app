@@ -10,11 +10,16 @@ class ItemEntries extends React.Component {
 
 
   createList(item) {
-    console.log("running createList... key : " + item.key + " and name: " + item.name)  
+    console.log("running createList... key : " + item.key + " and name: " + item.name)
     return(
       <li className="liItem" key={item.key}>
-        {item.name}
-        <button onClick={() => { this.props.deleteItem(item.key) }}>x</button>
+        <button onClick={this.props.strikeToggle}>
+          {this.props.completed ?
+          <h4 className="completedItem">{item.name}</h4> : <h4>{item.name}</h4>}
+        </button>
+        <button className="deleteButton" onClick={() => { this.props.deleteItem(item.key) }}>
+          <i className="far fa-trash-alt"></i>
+        </button>
       </li>
     )
   }
