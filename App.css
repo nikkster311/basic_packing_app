@@ -1,9 +1,35 @@
+/*
+purple
+6D2E5B
+
+lightblue
+D3E5FF
+
+green
+F4FFF7
+
+tan
+F2D4BF
+
+grey
+999999
+*/
+
+.content-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    overflow: auto;
+}
+
 .App {
   text-align: center;
+  background-color: #6D2E5B;
+  margin: 0;
+  width: 100%
 }
 
 .App-header {
-  background-color: #282c34;
   height: 40px;
   color: white;
 }
@@ -11,52 +37,141 @@
 /* ----------ALL LISTS---------- */
 
 .createCatForm {
-  background-color: #3f2;
-  padding: 10px;
+  background-color: #F2D4BF;
+  padding: 15px;
+}
+
+.createCatForm input{
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #6D2E5B;
+  padding: 5px;
+}
+
+.createCatForm button{
+  background-color: #F2D4BF;
+  color: #6D2E5B;
+  /* box-shadow: 10px black solid; */
+  border: 1px solid #6D2E5B;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 6px;
+  margin: 0px 0px 0px 4px;
+  -webkit-transition-duration: 0.4s;
+}
+
+.createCatForm button:hover {
+  background-color: #6D2E5B;
+  border: 1px solid #6D2E5B;
+  color: #D3E5FF;
 }
 
 .allCategories {
-  background-color: #f12;
+  /* margin: 0; */
+  /* width: 100vw; */
+  background-color: #F4FFF7;
   padding: 15px;
 }
 
 /* ----------INDIVID CATEGORY---------- */
 
-.categorySection{
-  background-color: #10d;
+.categorySection {
+  /* background-color: #10d; */
   padding: 15px;
-  border: 5px dashed #345;
+  border: 2px solid #6D2E5B;
+}
+
+.catTitle {
+  display: inline-block;
+  margin: 0px 0px 12px 0px;
+  color: #6D2E5B;
 }
 
 .ulCatComp {
-  background-color: #87a;
+  /* background-color: #87a; */
   padding: 10px;
+  color: #333;
+  list-style-type: none;
 }
 
 .addItemForm {
-  background-color: #91d;
+  background-color: #F2D4BF;
   padding: 15px;
+  border-radius: 5px;
+  width: 40vw;
+  /* border-bottom: 2px solid red; */
+}
+
+.addItemForm input {
+  background-color: #F2D4BF;
+  padding: 5px;
+  width: 20vw;
+  /* margin: 0px 80px; */
+  border: none;
+  border-bottom: 2px solid #6D2E5B;
+}
+
+.addItemForm button {
+  background-color: #F2D4BF;
+  color: #6D2E5B;
+  /* box-shadow: 10px black solid; */
+  border: 1px solid #6D2E5B;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 7px 4px;
+  margin: 0px 0px 0px 4px;
+  -webkit-transition-duration: 0.4s;
+}
+
+.addItemForm button:hover{
+  background-color: #6D2E5B;
+  border: 1px solid #6D2E5B;
+  color: #D3E5FF;
 }
 
 .deleteButton {
   background-color: transparent;
   border: none;
+  padding: 5px;
   cursor: pointer;
-  color: #3ed;
+  color: #6D2E5B;
   float: right;
+  -webkit-transition-duration: 0.4s;
+  /* position: absolute; */
+  /* top: 50%; */
+  /* right: 5%; */
+}
+
+.deleteButton:hover {
+  color: red;
 }
 
 /* ----------INDIVID ITEMS---------- */
 
 .liItem {
-  background-color: #10d;
-  padding: 15px;
+  background-color: #D3E5FF;
+  /* position: relative; */
+  padding: 0;
+  border-radius: 10px;
+  margin: 8px 40px 8px 8px;
+  /* border: 0.5px solid black; */
+  /* list-style-type: none; */
 }
 
-.catTitle {
-  display: inline-block;
+/* trying to change the background color if completed */
+/* .liItem .itemButton .completedItem{
+  background-color: #333;
+} */
+
+.itemButton {
+  cursor: pointer;
+  padding: 0;
+  border: none;
+  /* color: #de1320; */
+  background-color: transparent;
 }
 
 .completedItem {
   text-decoration: line-through;
+  color: #999999;
 }

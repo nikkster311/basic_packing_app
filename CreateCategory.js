@@ -4,10 +4,10 @@ class CreateCategory extends React.Component {
   render() {
     return (
       <div>
-        <form className="createCatForm" onSubmit={this.props.onSubmit}>createCategory forms
+        <form className="createCatForm content-wrap" onSubmit={this.props.onSubmit}>
           <input
             type="text"
-            placeholder="create new category"
+            placeholder="New category"
             onChange={this.props.handleInput}
             value={this.props.currentCategory.name} />
           <button type="submit"> Create Category </button>
