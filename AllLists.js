@@ -10,7 +10,7 @@ class AllLists extends React.Component {
 
   createCategory(category) {
     return (
-      <section className="categorySection" key={category.key}>
+      <section className="categorySection content-wrap" key={category.key}>
         <button className="deleteButton" onClick={() => { this.props.deleteCategory(category.key) }}>
           <i className="far fa-trash-alt"></i>
         </button>
@@ -23,7 +23,7 @@ class AllLists extends React.Component {
     const catList = this.props.catList //sets list of all categories and keys to allCategories
     const mappedCategories = catList.map(category => this.createCategory(category))
     return( //for x in this.state.catList, map into a category component
-      <section className="allCategories">{mappedCategories}</section>
+      <section className="allCategories content-wrap">{mappedCategories}</section>
     )
   }
 //return a function that adds a new <CategoryComponent/> each time submit is hit on <CreateCategory/>

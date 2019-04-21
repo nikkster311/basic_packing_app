@@ -7,14 +7,13 @@ class ItemEntries extends React.Component {
     this.createList.bind(this);
   }
 
-
-
   createList(item) {
-    console.log("running createList... key : " + item.key + " and name: " + item.name)
     return(
-      <li className="liItem" key={item.key}>
-        <button onClick={this.props.strikeToggle}>
-          {this.props.completed ?
+      <li className="liItem content-wrap" key={item.key}>
+      {//without () => in button onclick below, will render overandoverandover
+      }
+        <button className="itemButton" onClick={() => {this.props.completedToggle(item.key)}}>
+          {item.completed ?
           <h4 className="completedItem">{item.name}</h4> : <h4>{item.name}</h4>}
         </button>
         <button className="deleteButton" onClick={() => { this.props.deleteItem(item.key) }}>
@@ -39,3 +38,19 @@ class ItemEntries extends React.Component {
 }
 
 export default ItemEntries;
+
+
+// searchForCompleted = (item) => {
+//   console.log("running searchForCompleted..")
+//   var completedList = this.props.completedItems
+//   console.log("completedList = " + completedList)
+//   for (var x in completedList){
+//     console.log("x = " + x)
+//     if (x === item.key){
+//       return true
+//       console.log("searchForCompleted returned true for: " + item.name)
+//     } else {
+//       console.log("searchForCompleted returned false for key: " + item.name)
+//     }
+//   }
+// }
