@@ -41,16 +41,17 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App"> App
-        <header className="App-header"> Header
-          <AllLists //container with ALL of the category components
-            catList={this.state.catList}
-            deleteCategory={this.deleteCategory}/>
-          <CreateCategory
-            onSubmit={this.submitNewCat}
-            handleInput={this.handleInputNewCat}
-            currentCategory={this.state.currentCategory} />
-        </header>
+      <div className="App">
+        <h1 className="pageTitle content-wrap"> Packing List</h1>
+        <AllLists //container with ALL of the category components
+          catList={this.state.catList}
+          deleteCategory={this.deleteCategory}/>
+        <CreateCategory
+          onSubmit={this.submitNewCat}
+          handleInput={this.handleInputNewCat}
+          currentCategory={this.state.currentCategory} />
+        <footer className="App-header"> <a href="https://nikkster.tech">nikkster.tech</a></footer>
+
       </div>
     );
   }

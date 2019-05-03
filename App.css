@@ -24,21 +24,43 @@ grey
 
 .App {
   text-align: center;
+  /* justify-content: center; */
   background-color: #6D2E5B;
   margin: 0;
   width: 100%
 }
 
 .App-header {
-  height: 40px;
+  /* height: 40px; */
+  padding: 35px;
   color: white;
+  background-color: #def092;
+}
+
+.pageTitle {
+  color: #999999;
+}
+
+footer {
+  margin: 30px 0px 0px 0px;
 }
 
 /* ----------ALL LISTS---------- */
 
+.allCategories {
+  /* justify-content: center; */
+  /* position: absolute; */
+  width: 80vw;
+  background-color: #F4FFF7;
+  padding: 15px;
+  border-radius: 10px 10px 0px 0px;
+  /* margin: 10px; */
+}
+
 .createCatForm {
   background-color: #F2D4BF;
   padding: 15px;
+  border-radius: 0px 0px 10px 10px;
 }
 
 .createCatForm input{
@@ -66,18 +88,13 @@ grey
   color: #D3E5FF;
 }
 
-.allCategories {
-  /* margin: 0; */
-  /* width: 100vw; */
-  background-color: #F4FFF7;
-  padding: 15px;
-}
 
 /* ----------INDIVID CATEGORY---------- */
 
 .categorySection {
   /* background-color: #10d; */
   padding: 15px;
+  margin: 8px 8px;
   border: 2px solid #6D2E5B;
 }
 
@@ -156,6 +173,10 @@ grey
   margin: 8px 40px 8px 8px;
   /* border: 0.5px solid black; */
   /* list-style-type: none; */
+}
+
+.liItem h4 {
+  padding: 0px 15px;
 }
 
 /* trying to change the background color if completed */
