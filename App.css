@@ -58,6 +58,7 @@ footer {
 }
 
 .createCatForm {
+  width: 80vw;
   background-color: #F2D4BF;
   padding: 15px;
   border-radius: 0px 0px 10px 10px;
